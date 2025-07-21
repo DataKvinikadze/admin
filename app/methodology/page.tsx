@@ -1,6 +1,6 @@
 import MethodologyCard from "@/components/methodology/MethodologyCard";
 import MethodologyHeader from "@/components/methodology/MethodologyHeader";
-import { methodologyData } from "@/data/Methodology/methodology";
+import { methodologyData } from "@/data/methodologyData";
 import React from "react";
 
 const page = () => {
@@ -9,7 +9,7 @@ const page = () => {
       <MethodologyHeader/>
       <div className="grid gap-4">
       {methodologyData.map((block)=>(
-          <MethodologyCard  BlockCount={block.blocks.length} id={block.id} key={block.id} description={block.description} publishedDate={block.updatedAt} slug={block.slug} title={block.title}/>
+          <MethodologyCard  blockCount={block.blocks.length} id={block.id} key={block.id} description={block.description} publishedDate={block.publishedDate} slug={block.slug} title={block.title}/>
       ))}
       </div>
     </div>

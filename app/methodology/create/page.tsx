@@ -6,7 +6,16 @@ const page = () => {
     <div>
       <div className="max-w-4xl px-4 py-6">
         <BackButton text="Go Back To Methodology" link="/methodology" />
-        <MethodologyForm defaultValues={{title: "", blocks: [], createdAt: "", description:"", id:"", slug: "", status: "draft", updatedAt:"" }} />
+        <MethodologyForm
+          defaultValues={{
+            title: { en: "", ka: "" },
+            blocks: [],
+            description: {en: "", ka:""},
+            key: "",
+            slug: {en:"", ka:""},
+            
+          }}
+        />
       </div>
     </div>
   );

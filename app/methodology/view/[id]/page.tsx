@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import { methodologyData } from "@/data/Methodology/methodology";
+import { methodologyData } from "@/data/methodologyData";
 import { Separator } from "@/components/ui/separator";
 
 const ViewMethodologyPage = () => {
@@ -19,8 +19,8 @@ const ViewMethodologyPage = () => {
 
   return (
     <div className="max-w-3xl px-4 py-8">
-      <h1 className="text-3xl font-bold mb-2">{page.title}</h1>
-      <p className="text-muted-foreground mb-6">{page.description}</p>
+      <h1 className="text-3xl font-bold mb-2">{page.title.en}</h1>
+      <p className="text-muted-foreground mb-6">{page.description.en}</p>
       <Separator className="mb-6" />
 
       <div className="space-y-6">
@@ -31,7 +31,7 @@ const ViewMethodologyPage = () => {
                 <div key={block.id}>
                   {React.createElement(`h${block.level}`, {
                     className: `font-bold text-${(block.level ?? 2) * 1.25}xl`,
-                    children: block.content,
+                    children: block.content.en,
                   })}
                 </div>
               );
@@ -39,17 +39,17 @@ const ViewMethodologyPage = () => {
             case "paragraph":
               return (
                 <p key={block.id} className="text-base leading-relaxed">
-                  {block.content}
+                  {block.content.en}
                 </p>
               );
 
             case "list":
               return (
                 <div key={block.id}>
-                  <h4 className="font-medium">{block.content}</h4>
+                  <h4 className="font-medium">{block.content.en}</h4>
                   <ul className="list-disc list-inside ml-4 space-y-1 mt-2">
                     {block.listItems?.map((item, i) => (
-                      <li key={i}>{item}</li>
+                      <li key={i}>{item.en}</li>
                     ))}
                   </ul>
                 </div>

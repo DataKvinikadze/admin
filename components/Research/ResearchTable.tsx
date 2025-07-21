@@ -15,7 +15,7 @@ import {
   marketResearch,
   otherResearch,
   policyResearch,
-} from "@/data/research/research";
+} from "@/data/researchData";
 import { Pen, Trash2 } from "lucide-react";
 
 const ResearchTable = ({
@@ -27,18 +27,16 @@ const ResearchTable = ({
 }: {
   researchData?: {
     _id: string;
-    title: { en: string };
-    summary: { en: string };
-    author: string;
-    publishedDate: string;
+    title: { en: string; ka: string };
+    summary: { en: string; ka: string };
+    author: { en: string; ka: string };
+    publishedDate: Date;
   }[];
   title?: string;
   limit?: number;
   type?: string;
   searchTerm?: string;
 }) => {
-
-
   if (searchTerm) {
     researchData = researchData.filter((item) =>
       item.title.en.toLowerCase().includes(searchTerm.toLowerCase())
@@ -78,7 +76,7 @@ const ResearchTable = ({
                 >
                   {item.summary.en}
                 </TableCell>
-                <TableCell className="text-sm">{item.author || "—"}</TableCell>
+                <TableCell className="text-sm">{item.author.en || "—"}</TableCell>
                 <TableCell className="text-sm text-muted-foreground">
                   {new Date(item.publishedDate).toLocaleDateString()}
                 </TableCell>
