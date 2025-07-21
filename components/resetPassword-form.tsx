@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import signInSchema from '@/validations/sign-in.validation';
+import { resetPasswordSchema } from '@/validations/reset-password.validations';
 
-type SignInFormValues = z.infer<typeof signInSchema>;
+type SignInFormValues = z.infer<typeof resetPasswordSchema>;
 
-export function LoginForm({
+export function ResetPasswordForm({
   className,
   ...props
 }: React.ComponentProps<'div'>) {
@@ -21,7 +21,7 @@ export function LoginForm({
     handleSubmit,
     formState: { errors },
   } = useForm<SignInFormValues>({
-    resolver: zodResolver(signInSchema),
+    resolver: zodResolver(resetPasswordSchema),
   });
 
   const onSubmit = (data: SignInFormValues) => {
@@ -32,33 +32,14 @@ export function LoginForm({
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
         <CardHeader className='text-center'>
-          <CardTitle className='text-xl'>Welcome back</CardTitle>
+          <CardTitle className='text-xl'>Reset Password</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className='grid gap-6'>
               <div className='grid gap-3'>
-                <Label htmlFor='email'>Email</Label>
-                <Input
-                  id='email'
-                  type='email'
-                  placeholder='m@example.com'
-                  {...register('email')}
-                />
-                {errors.email && (
-                  <p className='text-sm text-red-500'>{errors.email.message}</p>
-                )}
-              </div>
-
-              <div className='grid gap-3'>
                 <div className='flex items-center'>
                   <Label htmlFor='password'>Password</Label>
-                  <a
-                    href='/forgotPassword'
-                    className='ml-auto text-sm underline-offset-4 hover:underline'
-                  >
-                    Forgot your password?
-                  </a>
                 </div>
                 <Input
                   id='password'
@@ -72,17 +53,25 @@ export function LoginForm({
                 )}
               </div>
 
-              <Button type='submit' className='w-full'>
-                Sign in
-              </Button>
-              <div className='text-center'>
-                <a
-                  href='/signUp'
-                  className='ml-auto text-ju text-sm underline-offset-4 hover:underline'
-                >
-                  dont have an account?
-                </a>
+              <div className='grid gap-3'>
+                <div className='flex items-center'>
+                  <Label htmlFor='confirmPassword'>Confirm Password</Label>
+                </div>
+                <Input
+                  id='confirmPassword'
+                  type='password'
+                  {...register('confirmPassword')}
+                />
+                {errors.confirmPassword && (
+                  <p className='text-sm text-red-500'>
+                    {errors.confirmPassword.message}
+                  </p>
+                )}
               </div>
+
+              <Button type='submit' className='w-full'>
+                reset password
+              </Button>
             </div>
           </form>
         </CardContent>
