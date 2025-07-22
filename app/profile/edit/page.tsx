@@ -1,8 +1,11 @@
+import EditProfile from '@/components/edit-profile';
 
-const page = () => {
+export default function page() {
   return (
-    <div>page</div>
-  )
+    <div className='bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10'>
+      <div className='flex w-full max-w-sm flex-col gap-6'>
+        <EditProfile />
+      </div>
+    </div>
+  );
 }
-
-export default page
