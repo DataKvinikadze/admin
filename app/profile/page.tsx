@@ -1,9 +1,11 @@
-import ProfileCard from "@/components/profile/ProfileCard";
-import ProfileForm from "@/components/profile/ProfileForm";
-import ProfileTabs from "@/components/profile/ProfileTabs";
+import ProfileHeder from "@/components/profile/ProfileHeder";
 
 const page = () => {
-  return <ProfileTabs />;
+  return (
+    <div>
+      <ProfileHeder />
+    </div>
+  );
 };
 
 export default page;

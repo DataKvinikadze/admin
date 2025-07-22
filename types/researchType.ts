@@ -21,6 +21,6 @@ export type Research = {
     ka: string
   }; // optional field for author name
   category: ResearchCategory;
-  publishedDate: string; // or Date if parsed
+  publishedDate: Date; // or Date if parsed
   key: string; // download URL
 }
