@@ -51,7 +51,6 @@ const formSchema = z.object({
   slug: localizedString,
   description: localizedString,
   blocks: z.array(blockSchema).min(1),
-  key: z.string().optional(),
 });
 
 // Normalize blocks to ensure level and listItems exist
@@ -88,7 +87,6 @@ export function MethodologyForm({
         en: defaultValues.description.en,
         ka: defaultValues.description.ka,
       },
-      key: defaultValues.key,
       slug: { en: defaultValues.slug.en, ka: defaultValues.slug.ka },
       title: { en: defaultValues.title.en, ka: defaultValues.title.ka },
     },

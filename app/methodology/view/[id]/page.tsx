@@ -4,6 +4,7 @@ import React from "react";
 import { useParams } from "next/navigation";
 import { methodologyData } from "@/data/methodologyData";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 const ViewMethodologyPage = () => {
   const { id } = useParams();
@@ -24,6 +25,7 @@ const ViewMethodologyPage = () => {
       <Separator className="mb-6" />
 
       <div className="space-y-6">
+
         {page.blocks.map((block) => {
           switch (block.type) {
             case "header":
@@ -65,4 +67,3 @@ const ViewMethodologyPage = () => {
 };
 
 export default ViewMethodologyPage;
- 

@@ -24,7 +24,6 @@ const formSchema = z.object({
     en: z.string().min(1, "Institution name in English is required"),
   }),
   ratingTerm: z.string().min(1, "Rating term is required"),
-  key: z.string().min(1, "Document key is required"),
   ratingDetails: z.object({
     localCurrency: z.string().min(1, "Local currency is required"),
     localRating: z.string().min(1, "Local rating is required"),
@@ -54,7 +53,6 @@ const StructuredForm = ({
         en: defaultValues.institution?.en ?? "",
       },
       ratingTerm: defaultValues.ratingTerm ?? "",
-      key: defaultValues.key ?? "",
       ratingDetails: {
         localCurrency: defaultValues.ratingDetails?.localCurrency ?? "",
         localRating: defaultValues.ratingDetails?.localRating ?? "",
@@ -128,20 +126,6 @@ const StructuredForm = ({
                   <FormLabel>Rating Term</FormLabel>
                   <FormControl>
                     <Input placeholder="e.g. Long-term" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="key"
-              render={({ field }) => (
-                <FormItem className="md:col-span-2">
-                  <FormLabel>Document Key</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g. structured-2025.pdf" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

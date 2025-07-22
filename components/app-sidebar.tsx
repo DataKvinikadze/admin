@@ -81,7 +81,7 @@ const data = {
     },
     {
       title: "Research",
-      url: "/research",
+      url: "/research/credit",
       icon: BookOpen,
       items: [
         {

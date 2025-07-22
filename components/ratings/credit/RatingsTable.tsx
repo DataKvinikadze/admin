@@ -54,9 +54,7 @@ const RatingsTable = ({ creditData, searchTerm }: RatingsProps) => {
               <TableHead>
                 Stand <br /> Alone
               </TableHead>
-              <TableHead>
-                Document
-              </TableHead>
+              <TableHead>Document</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -75,7 +73,17 @@ const RatingsTable = ({ creditData, searchTerm }: RatingsProps) => {
                 <TableCell>{rating.ratingDetails.nationalRating}</TableCell>
                 <TableCell>{rating.ratingDetails.sponsoredSupport}</TableCell>
                 <TableCell>{rating.ratingDetails.standAlone}</TableCell>
-                <TableCell>PDF</TableCell>
+                <TableCell>
+                  {" "}
+                  <a
+                    href={`https://d3u72n1gdjvw0x.cloudfront.net/research/7561928911386233.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    View PDF
+                  </a>
+                </TableCell>
                 <TableCell className="flex text-right  gap-2 ">
                   <div className="flex justify-end items-center gap-3">
                     <Link href={`/ratings/credit/edit/${rating.id}`}>

@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { useParams } from "next/navigation";
 import React from "react";
 import { JSX } from "react";
+import Image from "next/image";
 
 const NewsPage = () => {
   const { id } = useParams();
@@ -24,7 +25,14 @@ const NewsPage = () => {
       <p className="text-muted-foreground mb-1">{page.slug.en}</p>
       <p className="text-muted-foreground mb-6">{page.summery.en}</p>
       <Separator className="mb-6" />
-
+      <div className="my-6">
+        <Image
+          width={1250}
+          height={500}
+          src={"https://d3u72n1gdjvw0x.cloudfront.net/news/6404370828719343"}
+          alt="image"
+        />
+      </div>
       <div className="space-y-6">
         {page.blocks.map((block) => {
           switch (block.type) {

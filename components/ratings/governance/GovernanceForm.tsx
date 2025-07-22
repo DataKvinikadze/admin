@@ -29,7 +29,6 @@ const formSchema = z.object({
       .min(2, { message: "Institution name must be at least 2 characters" }),
   }),
   ratingTerm: z.string().min(1, { message: "Rating term is required" }),
-  key: z.string().min(1, { message: "PDF key is required" }),
   ratingDetails: z.object({
     shareholdersPoint: z.number().min(0, { message: "Required" }),
     shareholdersView: z.string().min(1, { message: "Required" }),
@@ -66,7 +65,6 @@ const GovernanceForm = ({
         en: defaultValues.institution.en,
         ka: defaultValues.institution.ka,
       },
-      key: defaultValues.key,
       ratingDetails: {
         boardPoint: defaultValues.ratingDetails.boardPoint,
         disclosurePoint: defaultValues.ratingDetails.disclosurePoint,
@@ -147,19 +145,6 @@ const GovernanceForm = ({
                   <FormLabel>Rating Term</FormLabel>
                   <FormControl>
                     <Input placeholder="e.g. Long-term" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="key"
-              render={({ field }) => (
-                <FormItem className="md:col-span-2">
-                  <FormLabel>PDF Key</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g. governance-2025.pdf" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

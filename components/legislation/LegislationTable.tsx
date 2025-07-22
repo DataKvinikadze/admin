@@ -36,6 +36,7 @@ const LegislationTable = ({ legislationData, searchTerm }: Props) => {
               <TableHead className="min-w-[150px]">Authority</TableHead>
               <TableHead className="min-w-[150px]">Document Type</TableHead>
               <TableHead className="min-w-[130px]">Published</TableHead>
+              <TableHead>Document</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -60,6 +61,16 @@ const LegislationTable = ({ legislationData, searchTerm }: Props) => {
                 </TableCell>
                 <TableCell className="text-sm">
                   {new Date(item.publishedDate).toLocaleDateString()}
+                </TableCell>
+                <TableCell className="text-sm">
+                  <a
+                    href={`https://d3u72n1gdjvw0x.cloudfront.net/research/7561928911386233.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    View PDF
+                  </a>
                 </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end items-center gap-3">

@@ -52,11 +52,12 @@ const StructuredTable = ({ structuredData, searchTerm }: RatingsProps) => {
                 <TableCell>{rating.ratingDetails.localRating}</TableCell>
                 <TableCell>
                   <a
-                    href={rating.key}
+                    href={`https://d3u72n1gdjvw0x.cloudfront.net/research/7561928911386233.pdf`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
                   >
-                    PDF
+                    View PDF
                   </a>
                 </TableCell>
                 <TableCell className="flex gap-2 text-right">

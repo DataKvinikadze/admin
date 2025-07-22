@@ -55,6 +55,7 @@ const ResearchTable = ({
               </TableHead>
               <TableHead className="min-w-[150px]">Author</TableHead>
               <TableHead className="min-w-[130px]">Published</TableHead>
+              <TableHead>Document</TableHead>
               <TableHead className="text-right min-w-[80px]">View</TableHead>
             </TableRow>
           </TableHeader>
@@ -76,9 +77,21 @@ const ResearchTable = ({
                 >
                   {item.summary.en}
                 </TableCell>
-                <TableCell className="text-sm">{item.author.en || "—"}</TableCell>
+                <TableCell className="text-sm">
+                  {item.author.en || "—"}
+                </TableCell>
                 <TableCell className="text-sm text-muted-foreground">
                   {new Date(item.publishedDate).toLocaleDateString()}
+                </TableCell>
+                <TableCell className="text-sm text-muted-foreground">
+                  <a
+                    href={`https://d3u72n1gdjvw0x.cloudfront.net/research/7561928911386233.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    View PDF
+                  </a>
                 </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end items-center space-x-4">
