@@ -71,7 +71,7 @@ export default function AddAdmin() {
             </div>
             <div className='flex gap-4'>
               <div className='flex-1 grid gap-2'>
-                <Label htmlFor='newPassword'>New Password</Label>
+                <Label htmlFor='newPassword'>Password</Label>
                 <Input
                   id='newPassword'
                   type='password'
@@ -84,7 +84,7 @@ export default function AddAdmin() {
                 )}
               </div>
               <div className='flex-1 grid gap-2'>
-                <Label htmlFor='confirmPassword'>Confirm New Password</Label>
+                <Label htmlFor='confirmPassword'>Confirm Password</Label>
                 <Input
                   id='confirmPassword'
                   type='password'

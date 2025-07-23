@@ -53,7 +53,7 @@ export function ForgotPasswordForm({
               <div className='grid gap-3'>
                 <div className='flex items-center justify-center'>
                   <a
-                    href='/login'
+                    href='/signIn'
                     className='text-sm underline-offset-4 hover:underline'
                   >
                     back to sign in?

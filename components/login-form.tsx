@@ -75,14 +75,6 @@ export function LoginForm({
               <Button type='submit' className='w-full'>
                 Sign in
               </Button>
-              <div className='text-center'>
-                <a
-                  href='/signUp'
-                  className='ml-auto text-ju text-sm underline-offset-4 hover:underline'
-                >
-                  dont have an account?
-                </a>
-              </div>
             </div>
           </form>
         </CardContent>
