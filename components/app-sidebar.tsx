@@ -9,6 +9,7 @@ import {
   Frame,
   LifeBuoy,
   Map,
+  Newspaper,
   PieChart,
   Scale,
   Send,
@@ -38,24 +39,24 @@ const data = {
   navMain: [
     {
       title: "Legislation",
-      url: "/legislation/International",
+      url: "/legislation/view/International",
       icon: Scale,
       items: [
         {
           title: "International",
-          url: "/legislation/international",
+          url: "/legislation/view/international",
         },
         {
           title: "National",
-          url: "/legislation/national",
+          url: "/legislation/view/national",
         },
         {
           title: "Guideline",
-          url: "/legislation/guideline",
+          url: "/legislation/view/guideline",
         },
         {
           title: "Update",
-          url: "/legislation/update",
+          url: "/legislation/view/update",
         },
       ],
     },
@@ -85,23 +86,23 @@ const data = {
       items: [
         {
           title: "Credit",
-          url: "/research/credit",
+          url: "/research/view/credit",
         },
         {
           title: "Market",
-          url: "/research/market",
+          url: "/research/view/market",
         },
         {
           title: "Governance",
-          url: "/research/governance",
+          url: "/research/view/governance",
         },
         {
           title: "Policy",
-          url: "/research/policy",
+          url: "/research/view/policy",
         },
         {
           title: "Other",
-          url: "/research/other",
+          url: "/research/view/other",
         },
       ],
     },
@@ -111,58 +112,11 @@ const data = {
       icon: Book,
     },
     {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Support",
-      url: "#",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+      title:"News",
+      url: "/news",
+      icon: Newspaper 
+    }
+  ]
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

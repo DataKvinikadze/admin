@@ -1,4 +1,4 @@
-import { ArrowLeftCircle } from "lucide-react"
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 type BackButtonProps = {
@@ -8,11 +8,14 @@ type BackButtonProps = {
 
 const BackButton = ({ text, link }: BackButtonProps) => {
   return (
-    <Link href={link} className="flex items-center text-black hover:text-grey-500 transition-colors duration-200 font-semibold mb-4 p-2 rounded-md">
-      <ArrowLeftCircle className="mr-2" />
-      {text}
+    <Link
+      href={link}
+      className="inline-flex items-center gap-2 hover:text-primary transition-colors duration-200 font-medium mb-6 px-3 py-2 rounded-lg hover:bg-muted"
+    >
+      <ArrowLeft className="w-5 h-5" />
+      <span>{text}</span>
     </Link>
-  )
-}
+  );
+};
 
-export default BackButton
+export default BackButton;

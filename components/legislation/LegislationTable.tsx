@@ -1,4 +1,3 @@
-import { LegislationFrontType } from "@/types/legislation/legislation";
 import { Pen, Trash2 } from "lucide-react";
 import Link from "next/link";
 
@@ -10,22 +9,17 @@ import {
   TableHead,
   TableCell,
 } from "../ui/table";
+import { LegislationType } from "@/types/legislationType";
 
 interface Props {
-  legislationData: LegislationFrontType[];
+  legislationData: LegislationType[];
   title: string;
   limit: number;
   type: string;
   searchTerm?: string;
 }
 
-const LegislationTable = ({
-  legislationData,
-  title,
-  limit,
-  type,
-  searchTerm,
-}: Props) => {
+const LegislationTable = ({ legislationData, searchTerm }: Props) => {
   if (searchTerm) {
     legislationData = legislationData.filter((item) =>
       item.title.en.toLowerCase().includes(searchTerm.toLowerCase())
@@ -60,7 +54,7 @@ const LegislationTable = ({
                 >
                   {item.summary.en}
                 </TableCell>
-                <TableCell className="text-sm">{item.authority}</TableCell>
+                <TableCell className="text-sm">{item.authority.en}</TableCell>
                 <TableCell className="text-sm capitalize">
                   {item.documentType.replace(/_/g, " ")}
                 </TableCell>
@@ -82,7 +76,7 @@ const LegislationTable = ({
             {legislationData.length === 0 && (
               <TableRow>
                 <TableCell
-                  colSpan={5}
+                  colSpan={6}
                   className="text-center py-6 text-muted-foreground"
                 >
                   No research articles found.
