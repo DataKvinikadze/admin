@@ -2,6 +2,9 @@
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+
+import { editProfileSchema } from '@/validations/edit-user.validation';
+import z from 'zod';
 import {
   Card,
   CardContent,
@@ -9,27 +12,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './ui/card';
-import { Button } from './ui/button';
-import { Label } from './ui/label';
-import { Input } from './ui/input';
-import { editProfileSchema } from '@/validations/edit-user.validation';
-import z from 'zod';
+} from '../ui/card';
+import { Label } from '../ui/label';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { addAdminSchema } from '@/validations/add-admin.validation';
 
-type FormValues = z.infer<typeof editProfileSchema>;
+type FormValues = z.infer<typeof addAdminSchema>;
 
-export default function EditProfile() {
+export default function AddAdmin() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: zodResolver(editProfileSchema),
-    defaultValues: {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@example.com',
-    },
+    resolver: zodResolver(addAdminSchema),
   });
 
   function onSubmit(data: FormValues) {
@@ -41,10 +38,10 @@ export default function EditProfile() {
       <Card className='w-full max-w-md'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <CardHeader className='space-y-1 text-center'>
-            <CardTitle className='text-2xl'>Edit Profile</CardTitle>
-            <CardDescription>Update your personal information</CardDescription>
+            <CardTitle className='text-2xl'>Add admin</CardTitle>
+            <CardDescription>Add Admin Information</CardDescription>
           </CardHeader>
-          <CardContent className='grid gap-6 margin-y-[16px]'>
+          <CardContent className='grid gap-6 my-4'>
             <div className='flex gap-4'>
               <div className='flex-1 grid gap-2'>
                 <Label htmlFor='firstName'>First Name</Label>
@@ -72,14 +69,6 @@ export default function EditProfile() {
                 <p className='text-sm text-red-500'>{errors.email.message}</p>
               )}
             </div>
-            <div className='grid gap-2'>
-              <Label htmlFor='currentPassword'>Current Password</Label>
-              <Input
-                id='currentPassword'
-                type='password'
-                {...register('currentPassword')}
-              />
-            </div>
             <div className='flex gap-4'>
               <div className='flex-1 grid gap-2'>
                 <Label htmlFor='newPassword'>New Password</Label>
@@ -88,6 +77,11 @@ export default function EditProfile() {
                   type='password'
                   {...register('newPassword')}
                 />
+                {errors.newPassword && (
+                  <p className='text-sm text-red-500'>
+                    {errors.newPassword.message}
+                  </p>
+                )}
               </div>
               <div className='flex-1 grid gap-2'>
                 <Label htmlFor='confirmPassword'>Confirm New Password</Label>
@@ -108,7 +102,7 @@ export default function EditProfile() {
             <Button variant='outline' type='button'>
               Cancel
             </Button>
-            <Button type='submit'>Save Changes</Button>
+            <Button type='submit'>Add Admin</Button>
           </CardFooter>
         </form>
       </Card>
